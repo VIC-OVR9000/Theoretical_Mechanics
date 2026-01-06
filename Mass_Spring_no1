@@ -1,0 +1,107 @@
+GlowScript 3.2 VPython
+
+
+
+#masses
+#M =1
+m0 =2
+m1 =1
+#spring constants
+k0 = 26.0
+#k1 =500
+
+# rest length of spring
+L = 4
+#initial distance from equilibrium position
+#xM  =0
+x00 =-2
+x01 =1
+
+# intial phases
+p0 = 0.0
+p1 = 0.0
+#angle of rotation
+q=0
+
+#Create objects
+#S = sphere(pos=vector(0,0,0),radius=1/8,color = color.red,make_trail=True)
+
+s0 = sphere(pos=vector((x00-L/2)*cos(q),(x00-L/2)*sin(q),0), radius=1/4, color=color.white)
+s1 = sphere(pos=vector((x01+L/2)*cos(q),(x01+L/2)*sin(q),0), radius=1/4, color=color.blue)
+
+spring=helix(pos=s0.pos, axis = s1.pos-s0.pos, radius = 0.2, thickness=0.02)
+
+#define mass for objects
+#S.m = M
+#s0.m = m0
+#s1.m = m1
+
+t=0
+dt=0.0001
+
+#mass ratio used to simplify omega(w)
+u = m0/m1
+
+
+
+s0.p = vector(0,0,0)
+s1.p = vector(0,0,0)
+
+w = sqrt(  (k0/m1)*(u+1)  )
+A0 = (x00*(1-(u*u)-u)-x01)  /  (-u*u-u)
+A1 = (x01-x00)/(-u*u-u)
+
+print("k = "+k0)
+print("u = " +u)
+print("w = " +w)
+print("A0 = "+A0)
+print("A1 = "+A1)
+
+
+while t < 20:
+ rate(15000)
+
+
+ X0 = A0*cos(p0) + A1*cos((w*(t)+p1))
+ X1 = A0*cos(p0) + A1*cos((w*(t)+p1))*(1-(u^2)-u)
+
+
+#while u<=1:
+ spring.pos = s0.pos
+ spring.axis = s1.pos-s0.pos
+  
+ s0.pos =  vector(  (X0-L/2)*cos(q),(X0-L/2)*sin(q),0)  
+ s1.pos =  vector(  (X1+L/2)*cos(q),(X1+L/2)*sin(q),0)
+  
+#while u>1:
+
+ #s0.pos =  vector((X1-L/2)*cos(q),(X1-L/2)*sin(q),0)
+ #s1.pos =  vector((X0+L/2)*cos(q),(X0+L/2)*sin(q),0)
+ 
+ 
+ t=t+dt
+ 
+ #F1 = k0*(mag(s0.pos -s1.pos))*norm(s1.pos -s0.pos)
+ #F2 = -k0*(mag(s1.pos -s0.pos))*norm(s0.pos -s1.pos)
+ #L0 = L
+ #LL = s0.pos -s1.pos
+ #F = k0*(mag(LL)-L0)*norm(LL)
+ #s0.p = s0.p + F*t/m0
+ #s0.pos = s0.pos + s0.p*t/m0
+ #s1.p = s1.p + F*t/m1
+ #s1.pos = s1.pos + s1.p*t/m1
+
+ #print(F1)print(F2)
+ #print(cos((w*t+p1)))
+
+
+
+
+
+
+
+
+
+
+
+
