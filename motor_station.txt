@@ -1,0 +1,122 @@
+70% of storage used … If you run out of space, you can't save to Drive, back up Google Photos, or use Gmail. Get 50% off annual plans for 1 year with a special New Year's offer.
+#define IN_1 2  //Digital pin 
+#define IN_2 3 //Digital pin 
+#define IN_3 4 //Digital pin 
+#define IN_4 5 //Digital pin 
+static int PINS[4] = {IN_1,IN_2,IN_3,IN_4};
+
+
+
+
+static int a[4] = {1,0,0,0};
+static int b[4] = {0,1,0,0};
+static int c[4] = {0,0,1,0};
+static int d[4] = {0,0,0,1};
+static int motorSTPSPD1 = 2;
+static int motorSTPSPD2 = 20;
+
+
+void setup() {
+pinMode(IN_1, OUTPUT);
+pinMode(IN_2, OUTPUT);
+pinMode(IN_3, OUTPUT);
+pinMode(IN_4, OUTPUT);
+}//ENDOF setup()
+
+
+
+
+void loop() {
+forward(motorSTPSPD1,2000);
+motorSTOP(2000);
+backward(motorSTPSPD2,2000);
+}//ENDOF LOOP()
+
+
+
+
+
+
+
+
+
+void check(int &x, int &PIN){if ( x ==1){digitalWrite(PIN, HIGH);}
+else if ( x ==0){digitalWrite(PIN, LOW);}
+}//ENDOF check()
+
+
+void forward(int &speed, unsigned long time){ // reference for speeds may have to go away!!
+unsigned long starttime = millis();
+unsigned long endtime = starttime;
+while ((endtime - starttime) <=time) // do this loop for up to 1000mS
+{
+check(a[0],PINS[0]);
+check(a[1],PINS[1]);
+check(a[2],PINS[2]);
+check(a[3],PINS[3]);
+delay(speed);
+check(b[0],PINS[0]);
+check(b[1],PINS[1]);
+check(b[2],PINS[2]);
+check(b[3],PINS[3]);
+delay(speed);
+check(c[0],PINS[0]);
+check(c[1],PINS[1]);
+check(c[2],PINS[2]);
+check(c[3],PINS[3]);
+delay(speed);
+check(d[0],PINS[0]);
+check(d[1],PINS[1]);
+check(d[2],PINS[2]);
+check(d[3],PINS[3]);
+delay(speed);
+endtime = millis();
+}//ENDOF while()
+}//ENDOF FWD
+
+
+
+void backward(int &speed, unsigned long time){ 
+unsigned long starttime = millis();
+unsigned long endtime = starttime;
+while ((endtime - starttime) <=time) // do this loop for up to 1000mS
+{  
+check(d[0],PINS[0]);
+check(d[1],PINS[1]);
+check(d[2],PINS[2]);
+check(d[3],PINS[3]);
+delay(speed);
+check(c[0],PINS[0]);
+check(c[1],PINS[1]);
+check(c[2],PINS[2]);
+check(c[3],PINS[3]);
+delay(speed);
+check(b[0],PINS[0]);
+check(b[1],PINS[1]);
+check(b[2],PINS[2]);
+check(b[3],PINS[3]);
+delay(speed);
+check(a[0],PINS[0]);
+check(a[1],PINS[1]);
+check(a[2],PINS[2]);
+check(a[3],PINS[3]);
+delay(speed);
+endtime = millis();
+}//ENDOF while()
+}//ENDOF backward
+
+
+
+
+void motorSTOP(unsigned long time){
+unsigned long starttime = millis();
+unsigned long endtime = starttime;
+while ((endtime - starttime) <=time) // do this loop for up to 1000mS
+{ 
+  for(int i=0;i<sizeof(PINS);i++)
+  {digitalWrite(PINS[i],LOW);}
+  endtime = millis();
+}//ENDOF while()
+}//ENDOF motorSTOP
+
+  
