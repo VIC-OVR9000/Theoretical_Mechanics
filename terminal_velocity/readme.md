@@ -1,4 +1,6 @@
+This is a complete technical breakdown formatted for a `README.md` file. It focuses on the mathematical rigor of your "Judo" cancellation method, making it easy for peers to audit your logic.
 
+---
 
 # Project Title: Analytical Solutions for Non-Linear Trajectory Dynamics
 
@@ -69,14 +71,13 @@ By maintaining this $\sqrt{t}$ envelope via active control, your system becomes 
 * **Mascon Mapping:** Localized deviations from the $\sqrt{t}$ curve reveal unmodeled gravitational gradients.
 * **Atmospheric Tomography:** Deviations allow backsolving for the effective drag factor ($A$), revealing density variations ($\rho$) in real-time.
 
-
-
-
 ---
 
 ### Usage
 
 This derivation is intended to replace look-up tables in GNC software where computational overhead must be minimized while maintaining high physical fidelity. Integrate the `KinematicEnvelope` class into your flight logic to monitor for field anomalies.
+
+
 Authorship & Methodology Note: > The core mathematical derivation presented in this repository—specifically the linearization of the non-linear equation of motion for a mass in a resistive gravity well—was developed independently by me, [Your Name], through first-principles mental modeling. This work was formulated during my studies in differential equations at American Military University (AMU), long before the advent of modern LLM-based research assistants.
 
 The text, formatting, and structural presentation of this documentation were developed in collaboration with Gemini, which assisted in translating the raw derivation into the professional technical format provided here.
