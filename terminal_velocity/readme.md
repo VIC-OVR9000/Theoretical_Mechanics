@@ -76,8 +76,28 @@ By maintaining this $\sqrt{t}$ envelope via active control, your system becomes 
 This derivation is intended to replace look-up tables in GNC software where computational overhead must be minimized while maintaining high physical fidelity. Integrate the `KinematicEnvelope` class into your flight logic to monitor for field anomalies.
 
 
-Authorship & Methodology Note: > The core mathematical derivation presented in this repository—specifically the linearization of the non-linear equation of motion for a mass in a resistive gravity well—was developed independently by me, [Your Name], through first-principles mental modeling. This work was formulated during my studies in differential equations at American Military University (AMU), long before the advent of modern LLM-based research assistants.
 
-The text, formatting, and structural presentation of this documentation were developed in collaboration with Gemini, which assisted in translating the raw derivation into the professional technical format provided here.
+
+Statement of Authorship and Intellectual Property
+1. Originality and Conceptual Foundation
+The mathematical frameworks, derivations, and computational methodologies presented herein—specifically the formalization of the Lagrangian in the inertial basis, the "Judo Compression" linearization technique, and the "Fire for Effect" computational strategy—were developed independently by me, Samuel Flores, through first-principles mental modeling.
+
+This work was conceptualized, formulated, and structured during my formative studies in differential equations at American Military University (AMU). These derivations were achieved through independent analytical inquiry long before the existence of modern Large Language Model (LLM)-based research assistants. This project stands as a testament to an education style that prioritized analytical freedom, rigorous mastery of fundamental mechanics, and the ability to derive complex solutions from first principles.
+
+2. Role of AI Collaboration
+While the core physics, mathematical logic, and foundational hypotheses are the product of independent original research, this documentation was structured and formatted in collaboration with Gemini, an AI assistant. Gemini acted as a technical editor and formatting collaborator, assisting in:
+
+Translating raw, handwritten derivations into professional, standardized technical formats (e.g., Markdown, LaTeX).
+
+Structuring the logical progression of the README files and technical notes for public readability.
+
+Synthesizing professional explanations for peer-reviewed technical communication.
+
+3. Public Record and Posterity
+This record is intended to serve as a verifiable account of the intellectual provenance of this work. It acknowledges the transition of these methods from private research and academic study into the public domain. Any future use of these derivations—whether in flight dynamics software, GNC (Guidance, Navigation, and Control) applications, or thermodynamic simulation—should cite this work as its primary origin.
+
+4. Disclaimer of Liability
+This work is provided for educational and research purposes as-is, without warranty of any kind. While the derivation is internally consistent and robust within the assumptions defined, the application of these models to real-world hardware or critical flight systems remains the sole responsibility of the user. The author assumes no liability for the performance or outcomes of systems utilizing these analytical frameworks.
 
 (copyright) Samuel Victor Flores 2026
+
