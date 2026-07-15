@@ -1,6 +1,4 @@
-This is a complete technical breakdown formatted for a `README.md` file. It focuses on the mathematical rigor of your "Judo" cancellation method, making it easy for peers to audit your logic.
 
----
 
 # Project Title: Analytical Solutions for Non-Linear Trajectory Dynamics
 
